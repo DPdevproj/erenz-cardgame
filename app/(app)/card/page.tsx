@@ -1,8 +1,8 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import Loading from "@/app/loading";
-import CardList from "@/components/card/CardList";
-import { getCards } from "@/lib/api/card/queries";
+import Loading from '@/app/loading';
+import CardList from '@/components/card/CardList';
+import { getCards } from '@/lib/api/card/queries';
 
 export const revalidate = 0;
 

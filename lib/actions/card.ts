@@ -1,27 +1,27 @@
-"use server";
+'use server';
 
-import { revalidatePath } from "next/cache";
-import { createCard, deleteCard, updateCard } from "@/lib/api/card/mutations";
+import { revalidatePath } from 'next/cache';
+import { createCard, deleteCard, updateCard } from '@/lib/api/card/mutations';
 import {
   CardId,
   NewCardParams,
   UpdateCardParams,
   cardIdSchema,
   insertCardParams,
-  updateCardParams,
-} from "@/lib/db/schema/card";
+  updateCardParams
+} from '@/lib/db/schema/card';
 
 const handleErrors = (e: unknown) => {
-  const errMsg = "Error, please try again.";
+  const errMsg = 'Error, please try again.';
   if (e instanceof Error) return e.message.length > 0 ? e.message : errMsg;
-  if (e && typeof e === "object" && "error" in e) {
+  if (e && typeof e === 'object' && 'error' in e) {
     const errAsStr = e.error as string;
     return errAsStr.length > 0 ? errAsStr : errMsg;
   }
   return errMsg;
 };
 
-const revalidateCards = () => revalidatePath("/card");
+const revalidateCards = () => revalidatePath('/card');
 
 export const createCardAction = async (input: NewCardParams) => {
   try {

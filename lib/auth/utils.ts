@@ -1,5 +1,5 @@
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
 
 export type AuthSession = {
   session: {
@@ -20,9 +20,9 @@ export const getUserAuth = async () => {
         user: {
           id: userId,
           name: `${sessionClaims?.firstName} ${sessionClaims?.lastName}`,
-          email: sessionClaims?.email,
-        },
-      },
+          email: sessionClaims?.email
+        }
+      }
     } as AuthSession;
   } else {
     return { session: null };
@@ -30,6 +30,7 @@ export const getUserAuth = async () => {
 };
 
 export const checkAuth = async () => {
-  const { userId } = auth();
-  if (!userId) redirect("/sign-in");
+  const { userId, sessionClaims } = auth();
+  console.log('email', sessionClaims?.email);
+  if (!userId) redirect('/sign-in');
 };

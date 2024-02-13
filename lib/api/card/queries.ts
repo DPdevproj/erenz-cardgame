@@ -1,6 +1,6 @@
-import { db } from "@/lib/db/index";
-import { eq } from "drizzle-orm";
-import { type CardId, cardIdSchema, card } from "@/lib/db/schema/card";
+import { db } from '@/lib/db/index';
+import { eq } from 'drizzle-orm';
+import { type CardId, cardIdSchema, card } from '@/lib/db/schema/card';
 
 export const getCards = async () => {
   const rows = await db.select().from(card);

@@ -1,5 +1,5 @@
-import { db } from "@/lib/db/index";
-import { getUserAuth } from "@/lib/auth/utils";
+import { db } from '@/lib/db/index';
+import { getUserAuth } from '@/lib/auth/utils';
 
 export async function createTRPCContext(opts: { headers: Headers }) {
   const { session } = await getUserAuth();
@@ -7,7 +7,7 @@ export async function createTRPCContext(opts: { headers: Headers }) {
   return {
     db,
     session: session,
-    ...opts,
+    ...opts
   };
 }
 

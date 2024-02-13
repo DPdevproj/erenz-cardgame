@@ -8,7 +8,9 @@ import { type getCards } from '@/lib/api/card/queries';
 import { nanoid, timestamps } from '@/lib/utils';
 
 export const card = mysqlTable('card', {
-  id: varchar('id', { length: 191 }) .primaryKey() .$defaultFn(() => nanoid()),
+  id: varchar('id', { length: 191 })
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
   name: varchar('name', { length: 256 }).notNull(),
   expansion: varchar('expansion', { length: 256 }).notNull(),
   rarity: varchar('rarity', { length: 256 }).notNull(),
@@ -18,8 +20,12 @@ export const card = mysqlTable('card', {
   price: real('price').notNull(),
   condition: int('condition').notNull(),
   available: boolean('available').notNull(),
-  createdAt: timestamp('created_at').notNull() .default(sql`now()`),
-  updatedAt: timestamp('updated_at').notNull() .default(sql`now()`)
+  createdAt: timestamp('created_at')
+    .notNull()
+    .default(sql`now()`),
+  updatedAt: timestamp('updated_at')
+    .notNull()
+    .default(sql`now()`)
 });
 
 // Schema for card - used to validate API requests

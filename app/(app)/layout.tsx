@@ -1,15 +1,11 @@
-import { checkAuth } from "@/lib/auth/utils";
-import { Toaster } from "@/components/ui/sonner";
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
-import { ClerkProvider } from "@clerk/nextjs";
-import TrpcProvider from "@/lib/trpc/Provider";
-import { cookies } from "next/headers";
-export default async function AppLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { checkAuth } from '@/lib/auth/utils';
+import { Toaster } from '@/components/ui/sonner';
+import Navbar from '@/components/Navbar';
+import Sidebar from '@/components/Sidebar';
+import { ClerkProvider } from '@clerk/nextjs';
+import TrpcProvider from '@/lib/trpc/Provider';
+import { cookies } from 'next/headers';
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
   await checkAuth();
   return (
     <main>

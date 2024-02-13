@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+import { Card } from '@/components/ui/card';
 
 interface AccountCardProps {
   params: {
@@ -26,18 +26,9 @@ export function AccountCardBody({ children }: { children: React.ReactNode }) {
   return <div className="p-4">{children}</div>;
 }
 
-export function AccountCardFooter({
-  description,
-  children,
-}: {
-  children: React.ReactNode;
-  description: string;
-}) {
+export function AccountCardFooter({ description, children }: { children: React.ReactNode; description: string }) {
   return (
-    <div
-      className="bg-muted p-4 border dark:bg-card flex justify-between items-center rounded-b-lg"
-      id="footer"
-    >
+    <div className="bg-muted p-4 border dark:bg-card flex justify-between items-center rounded-b-lg" id="footer">
       <p className="text-muted-foreground text-sm">{description}</p>
       {children}
     </div>
