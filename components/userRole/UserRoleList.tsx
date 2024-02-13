@@ -69,7 +69,7 @@ const UserRole = ({ userRole, openModal }: { userRole: CompleteUserRole; openMod
       )}
     >
       <div className="w-full">
-        <div>{userRole.userId}</div>
+        <div>{userRole.userEmail}</div>
       </div>
       <Button variant={'link'} asChild>
         <Link href={basePath + '/' + userRole.id}>Edit</Link>

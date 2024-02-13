@@ -29,7 +29,7 @@ export default function OptimisticUserRole({ userRole }: { userRole: UserRole })
         />
       </Modal>
       <div className="flex justify-between items-end mb-4">
-        <h1 className="font-semibold text-2xl">{userRole.userId}</h1>
+        <h1 className="font-semibold text-2xl">{userRole.userEmail}</h1>
         <Button className="" onClick={() => setOpen(true)}>
           Edit
         </Button>

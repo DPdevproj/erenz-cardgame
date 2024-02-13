@@ -12,6 +12,8 @@ import { useBackPath } from '@/components/shared/BackButton';
 import { type UserRole, insertUserRoleParams } from '@/lib/db/schema/userRole';
 import { createUserRoleAction, deleteUserRoleAction, updateUserRoleAction } from '@/lib/actions/userRole';
 import { TAddUserRoleOptimistic } from '@/app/(app)/user-role/useOptimisticUserRole';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { userRoles } from './userRoles';
 
 const UserRoleForm = ({
   userRole,
@@ -27,7 +29,7 @@ const UserRoleForm = ({
   addOptimistic?: TAddUserRoleOptimistic;
   postSuccess?: () => void;
 }) => {
-  const { errors, hasErrors, setErrors, handleChange } = useValidatedForm<UserRole>(insertUserRoleParams);
+  const { errors, hasErrors, setErrors } = useValidatedForm<UserRole>(insertUserRoleParams);
   const editing = !!userRole?.id;
 
   const [isDeleting, setIsDeleting] = useState(false);
@@ -93,26 +95,37 @@ const UserRoleForm = ({
   };
 
   return (
-    <form action={handleSubmit} onChange={handleChange} className={'space-y-8'}>
+    <form action={handleSubmit} className={'space-y-8'}>
       {/* Schema fields start */}
       <div>
-        <Label className={cn('mb-2 inline-block', errors?.userId ? 'text-destructive' : '')}>User Id</Label>
+        <Label className={cn('mb-2 inline-block', errors?.userEmail ? 'text-destructive' : '')}>User Email</Label>
         <Input
           type="text"
-          name="userId"
-          className={cn(errors?.userId ? 'ring ring-destructive' : '')}
-          defaultValue={userRole?.userId ?? ''}
+          name="userEmail"
+          className={cn(errors?.userEmail ? 'ring ring-destructive' : '')}
+          defaultValue={userRole?.userEmail ?? ''}
         />
-        {errors?.userId ? <p className="text-xs text-destructive mt-2">{errors.userId[0]}</p> : <div className="h-6" />}
+        {errors?.userEmail ? (
+          <p className="text-xs text-destructive mt-2">{errors.userEmail[0]}</p>
+        ) : (
+          <div className="h-6" />
+        )}
       </div>
       <div>
         <Label className={cn('mb-2 inline-block', errors?.role ? 'text-destructive' : '')}>Role</Label>
-        <Input
-          type="text"
-          name="role"
-          className={cn(errors?.role ? 'ring ring-destructive' : '')}
-          defaultValue={userRole?.role ?? ''}
-        />
+        <Select name="role">
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select Role" />
+          </SelectTrigger>
+          <SelectContent>
+            {userRoles.map((role) => (
+              <SelectItem key={role} value={role}>
+                {role}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
         {errors?.role ? <p className="text-xs text-destructive mt-2">{errors.role[0]}</p> : <div className="h-6" />}
       </div>
       {/* Schema fields end */}

@@ -20,7 +20,7 @@ export const getUserAuth = async () => {
         user: {
           id: userId,
           name: `${sessionClaims?.firstName} ${sessionClaims?.lastName}`,
-          email: sessionClaims?.email
+          email: sessionClaims?.primaryEmail
         }
       }
     } as AuthSession;
@@ -31,6 +31,5 @@ export const getUserAuth = async () => {
 
 export const checkAuth = async () => {
   const { userId, sessionClaims } = auth();
-  console.log('email', sessionClaims?.email);
   if (!userId) redirect('/sign-in');
 };

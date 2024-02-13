@@ -10,11 +10,7 @@ export const useOptimisticUserRoles = (userRole: CompleteUserRole[]) => {
     (currentState: CompleteUserRole[], action: OptimisticAction<UserRole>): CompleteUserRole[] => {
       const { data } = action;
 
-      const optimisticUserRole = {
-        ...data,
-
-        id: 'optimistic'
-      };
+      const optimisticUserRole = { ...data, id: 'optimistic' };
 
       switch (action.action) {
         case 'create':

@@ -15,6 +15,13 @@
       "when": 1707817321695,
       "tag": "0001_careful_polaris",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1707824104014,
+      "tag": "0002_melted_pet_avengers",
+      "breakpoints": true
     }
   ]
 }
