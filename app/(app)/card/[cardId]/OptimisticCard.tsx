@@ -9,15 +9,7 @@ import { Button } from "@/components/ui/button";
 import Modal from "@/components/shared/Modal";
 import CardForm from "@/components/card/CardForm";
 
-
-export default function OptimisticCard({ 
-  card,
-   
-}: { 
-  card: Card; 
-  
-  
-}) {
+export default function OptimisticCard({ card }: { card: Card }) {
   const [open, setOpen] = useState(false);
   const openModal = (_?: Card) => {
     setOpen(true);
@@ -32,7 +24,6 @@ export default function OptimisticCard({
       <Modal open={open} setOpen={setOpen}>
         <CardForm
           card={card}
-          
           closeModal={closeModal}
           openModal={openModal}
           addOptimistic={updateCard}

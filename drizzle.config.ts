@@ -7,5 +7,5 @@ export default {
   driver: "mysql2",
   dbCredentials: {
     uri: env.DATABASE_URL,
-  }
+  },
 } satisfies Config;

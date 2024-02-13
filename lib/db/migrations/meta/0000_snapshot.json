@@ -99,9 +99,7 @@
       "compositePrimaryKeys": {
         "card_id": {
           "name": "card_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {}

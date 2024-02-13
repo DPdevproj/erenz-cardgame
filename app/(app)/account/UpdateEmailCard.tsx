@@ -25,8 +25,7 @@ export default function UpdateEmailCard({ email }: { email: string }) {
         body: JSON.stringify({ email }),
         headers: { "Content-Type": "application/json" },
       });
-      if (res.status === 200)
-        toast.success("Successfully updated email!");
+      if (res.status === 200) toast.success("Successfully updated email!");
       router.refresh();
     });
   };

@@ -1,11 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import {
-  createCard,
-  deleteCard,
-  updateCard,
-} from "@/lib/api/card/mutations";
+import { createCard, deleteCard, updateCard } from "@/lib/api/card/mutations";
 import {
   CardId,
   NewCardParams,

@@ -1,11 +1,6 @@
 {
   "hasSrc": false,
-  "packages": [
-    "shadcn-ui",
-    "drizzle",
-    "clerk",
-    "trpc"
-  ],
+  "packages": ["shadcn-ui", "drizzle", "clerk", "trpc"],
   "preferredPackageManager": "bun",
   "t3": false,
   "alias": "@",

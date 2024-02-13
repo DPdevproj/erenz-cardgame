@@ -4,7 +4,7 @@ import { type CardId, cardIdSchema, card } from "@/lib/db/schema/card";
 
 export const getCards = async () => {
   const rows = await db.select().from(card);
-  const c = rows
+  const c = rows;
   return { cards: c };
 };
 
@@ -15,5 +15,3 @@ export const getCardById = async (id: CardId) => {
   const c = row;
   return { card: c };
 };
-
-

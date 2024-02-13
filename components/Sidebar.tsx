@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import SidebarItems from "./SidebarItems";import { UserButton } from "@clerk/nextjs";
+import SidebarItems from "./SidebarItems";
+import { UserButton } from "@clerk/nextjs";
 
 import { AuthSession, getUserAuth } from "@/lib/auth/utils";
 

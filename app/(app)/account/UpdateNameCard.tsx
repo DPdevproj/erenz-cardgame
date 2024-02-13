@@ -25,8 +25,7 @@ export default function UpdateNameCard({ name }: { name: string }) {
         body: JSON.stringify({ name }),
         headers: { "Content-Type": "application/json" },
       });
-      if (res.status === 200)
-        toast.success("Successfully updated name!");
+      if (res.status === 200) toast.success("Successfully updated name!");
       router.refresh();
     });
   };

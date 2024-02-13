@@ -1,4 +1,4 @@
-import { getCardById, getCard } from "@/lib/api/card/queries";
+import { getCardById, getCards } from "@/lib/api/card/queries";
 import { publicProcedure, router } from "@/lib/server/trpc";
 import {
   cardIdSchema,
@@ -9,7 +9,7 @@ import { createCard, deleteCard, updateCard } from "@/lib/api/card/mutations";
 
 export const cardRouter = router({
   getCard: publicProcedure.query(async () => {
-    return getCard();
+    return getCards();
   }),
   getCardById: publicProcedure.input(cardIdSchema).query(async ({ input }) => {
     return getCardById(input.id);
