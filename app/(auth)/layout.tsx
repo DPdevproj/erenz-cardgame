@@ -7,7 +7,7 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
   if (session?.session) redirect('/dashboard');
 
   return (
-    <div className="bg-muted h-screen pt-8">
+    <div className="bg-background h-screen items-center justify-center">
       <ClerkProvider>{children}</ClerkProvider>
     </div>
   );

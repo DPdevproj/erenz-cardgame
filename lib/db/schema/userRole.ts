@@ -6,7 +6,9 @@ import { nanoid } from '@/lib/utils';
 const RolesEnum = z.enum(['admin', 'user']);
 
 export const userRole = mysqlTable('user_role', {
-  id: varchar('id', { length: 191 }).primaryKey().$defaultFn(() => nanoid()),
+  id: varchar('id', { length: 191 })
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
   userEmail: varchar('user_email', { length: 256 }).notNull(),
   role: varchar('role', { length: 256 }).notNull()
 });
