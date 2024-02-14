@@ -3,7 +3,8 @@ import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 import { type getUserRoles } from '@/lib/api/userRole/queries';
 import { nanoid } from '@/lib/utils';
-const RolesEnum = z.enum(['admin', 'user']);
+export const RolesEnum = z.enum(['admin', 'user']);
+export type Role = z.infer<typeof RolesEnum>;
 
 export const userRole = mysqlTable('user_role', {
   id: varchar('id', { length: 191 }).primaryKey().$defaultFn(() => nanoid()),

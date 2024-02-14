@@ -7,7 +7,7 @@ import { AuthSession, getUserAuth } from '@/lib/auth/utils';
 
 const Sidebar = async () => {
   const session = await getUserAuth();
-  if (session.session === null) return null;
+  if (session === null) return null;
 
   return (
     <aside className="h-screen min-w-52 bg-muted hidden md:block p-4 pt-8 border-r border-border shadow-inner">
@@ -25,17 +25,17 @@ const Sidebar = async () => {
 export default Sidebar;
 
 const UserDetails = ({ session }: { session: AuthSession }) => {
-  if (session.session === null) return null;
-  const { user } = session.session;
+  if (!session) return null;
 
-  if (!user?.name || user.name.length == 0) return null;
+  const { user } = session;
+  const { role, email, name } = user;
 
   return (
     <Link href="/account">
       <div className="flex items-center justify-between w-full border-t border-border pt-4 px-2">
         <div className="text-muted-foreground">
-          <p className="text-xs">{user.name ?? 'John Doe'}</p>
-          <p className="text-xs font-light pr-4">{user.email ?? 'john@doe.com'}</p>
+          <p className="text-xs">{`${name} (${role})`}</p>
+          <p className="text-xs font-light pr-4">{email}</p>
         </div>
         <UserButton afterSignOutUrl="/" />
       </div>
